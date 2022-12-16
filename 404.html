@@ -13,7 +13,7 @@
     </style>
 </head>
 <body>
-    Fetching...
+    <div id="docs">Fetching...</div>
     <script src="assets/functions.js"></script>
     <script>
     try {
@@ -24,7 +24,7 @@
             location.href = location.origin;
         }
     } catch(e) {
-        document.body.innerHTML = e;
+        document.querySelector("#docs").innerHTML = e;
     }
     </script>
 </body>

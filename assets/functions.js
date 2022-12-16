@@ -9,10 +9,10 @@ const BlogBooks = {
                         $content += `<div class="post" data-postID="${data.id}"><div class="title">${data.title.rendered}</div><div class="description">${data.excerpt.rendered}</div></div>`;
                     }
                 });
-                document.body.innerHTML = $content;
+                document.querySelector("#docs").innerHTML = $content;
             })
             .catch(e => {
-                document.body.innerHTML = e;
+                document.querySelector("#docs").innerHTML = e;
                 console.error(e);
             })
     },
@@ -22,10 +22,10 @@ const BlogBooks = {
             .then(response => response.json())
             .then(query => {
                 $content = `<h1>${query.title.rendered}</h1><div class="date">Date: ${query.date}</div><div class="content">${query.content.rendered}</div>`;
-                document.body.innerHTML = $content;
+                document.querySelector("#docs").innerHTML = $content;
             })
             .catch(e => {
-                document.body.innerHTML = e;
+                document.querySelector("#docs").innerHTML = e;
                 console.error(e);
             })
     }
