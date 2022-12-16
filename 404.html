@@ -62,7 +62,7 @@
         // Start Line
         if (location.pathname.startsWith("/Blog")) {
             const target = location.href.split("/")[4];
-            if (isNaN(target) || target == ("" || null || undefined)) {
+            if (target == ("" || null || undefined)) {
                 BlogBooks.posts();
             } else {
                 BlogBooks.page(target);
