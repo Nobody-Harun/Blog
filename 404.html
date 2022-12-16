@@ -64,7 +64,7 @@
             if (isNaN(target[target.length]) && isNaN(target[target.length - 1])) {
                 BlogBooks.posts();
             } else {
-                BlogBooks.page(target);
+                isNaN(target[target.length]) ? BlogBooks.page(target[target.length -1]) : BlogBooks.page(target[target.length]);
             }
         } else {
             location.href = location.origin;
