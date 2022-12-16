@@ -58,6 +58,7 @@
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
 
+    try {
         // Start Line
         if (location.pathname.startsWith("/Blog")) {
             String(location.href.split("/").indexOf("Blog")).startsWith("-") ? location.href = location.origin : () => {const target = location.href.split("/").indexOf("Blog") + 1};
@@ -69,6 +70,9 @@
         } else {
             location.href = location.origin;
         }
+    } catch(e) {
+        document.body.innerHTML = e;
+    }
     </script>
 </body>
 </html>
