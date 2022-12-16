@@ -61,7 +61,7 @@
     try {
         // Start Line
         if (location.pathname.startsWith("/Blog")) {
-            const target = location.href.split("/")[4];
+            const target = location.href.split("/")[4].trim();
             if (target == ("" || null || undefined)) {
                 BlogBooks.posts();
             } else {
