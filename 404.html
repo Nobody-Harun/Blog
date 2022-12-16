@@ -60,12 +60,11 @@
 
         // Start Line
         if (location.pathname.startsWith("/Blog")) {
-            var target = location.href.split("/");
-            const checkNaN = Number.isNaN || isNaN;
-            if (checkNaN(target[target.length]) && checkNaN(target[target.length - 1])) {
+            String(location.href.split("/").indexOf("Blog")).startsWith("-") ? location.href = location.origin : () => {const target = location.href.split("/").indexOf("Blog") + 1};
+            if (isNaN(target) || Number.isNaN(target)) {
                 BlogBooks.posts();
             } else {
-                checkNaN(target[target.length]) ? BlogBooks.page(target[target.length -1]) : BlogBooks.page(target[target.length]);
+                BlogBooks.page(target);
             }
         } else {
             location.href = location.origin;
