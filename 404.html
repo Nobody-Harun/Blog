@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="/Blog/assets/index.css">
 </head>
 <body>
     <script>
@@ -31,7 +32,7 @@
                 fetch(`https://blogbooks-fetcher-1.haru070.repl.co/page/?id=${id}`)
                     .then(response => response.json())
                     .then(query => {
-                        $content = `<h1>${query.title.rendered}</h1><div class="date">date</div><div class="content">${query.content.rendered}</div>`;
+                        $content = `<h1>${query.title.rendered}</h1><div class="date">Date: ${query.date}</div><div class="content">${query.content.rendered}</div>`;
                         document.body.innerHTML = $content;
                     })
                     .catch(e => {
