@@ -61,11 +61,15 @@
     try {
         // Start Line
         if (location.pathname.startsWith("/Blog")) {
-            String(location.href.split("/").indexOf("Blog")).startsWith("-") ? location.href = location.origin : () => {const target = location.href.split("/").indexOf("Blog") + 1};
-            if (isNaN(target) || Number.isNaN(target)) {
-                BlogBooks.posts();
+            if (String(location.href.split("/").indexOf("Blog")).startsWith("-")) {
+                location.href = location.origin;
             } else {
-                BlogBooks.page(target);
+                const target = location.href.split("/").indexOf("Blog") + 1;
+                if (isNaN(target) || Number.isNaN(target)) {
+                    BlogBooks.posts();
+                } else {
+                    BlogBooks.page(target);
+                }
             }
         } else {
             location.href = location.origin;
