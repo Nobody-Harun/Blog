@@ -54,10 +54,10 @@
         // Start Line
         if (location.pathname.startsWith("/Blog")) {
             var target = location.pathname.substr(6);
-            if (target === (null || "" || undefined)) {
-                BlogBooks.posts();
-            } else {
+            if (isNaN(target)) {
                 BlogBooks.page(target);
+            } else {
+                BlogBooks.posts();
             }
         } else {
             location.href = location.origin;
