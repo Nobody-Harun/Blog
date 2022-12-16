@@ -57,11 +57,10 @@
 
         // Start Line
         if (location.pathname.startsWith("/Blog")) {
-            var target = location.pathname.substr(5);
+            var target = location.pathname.substr(6);
             if (target == null || "" || undefined) {
                 BlogBooks.posts();
             } else {
-                target = location.pathname.substr(6);
                 BlogBooks.page(target);
             }
         } else {
