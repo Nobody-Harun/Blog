@@ -64,8 +64,8 @@
             if (String(location.href.split("/").indexOf("Blog")).startsWith("-")) {
                 location.href = location.origin;
             } else {
-                const target = location.href.split("/").indexOf("Blog") + 1;
-                if (isNaN(target) || Number.isNaN(target)) {
+                const target = location.href.split("/")[location.href.split("/").indexOf("Blog") + 1];
+                if (isNaN(target)) {
                     BlogBooks.posts();
                 } else {
                     BlogBooks.page(target);
