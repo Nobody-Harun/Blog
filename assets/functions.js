@@ -1,3 +1,4 @@
+const VanityURL = location.origin + "/Blog";
 const BlogBooks = {
     posts() {
         fetch("https://blogbooks-fetcher-1.haru070.repl.co/posts")

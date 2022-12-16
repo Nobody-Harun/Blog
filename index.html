@@ -13,13 +13,14 @@
     </style>
 </head>
 <body>
-    Fetching...
+    <a href="/Blog"><= Homeに戻る</a>
+    <div id="docs">Fetching...</div>
     <script src="assets/functions.js"></script>
     <script>
     try {
         BlogBooks.posts();
     } catch(e) {
-        document.body.innerHTML = e;
+        document.querySelector("#docs").innerHTML = e;
     }
     </script>
 </body>
