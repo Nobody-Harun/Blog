@@ -29,7 +29,7 @@ const BlogBooks = {
         fetch(`https://blogbooks-fetcher-1.haru070.repl.co/page/?id=${id}`)
             .then(response => response.json())
             .then(query => {
-                $content = `<h1>${query.title.rendered}</h1><div class="info">Date: ${this.timeAsset(query.date)} Written By <span class="author"></span></div><div class="content">${String(query.content.rendered).replaceAll("https://blogbooks.net/chromebook/", "https://nobody-local.github.io/Blog/")}</div>`;
+                $content = `<h1>${query.title.rendered}</h1><div class="info">Date: ${this.timeAsset(query.date)} </div><div class="content">${String(query.content.rendered).replaceAll("https://blogbooks.net/chromebook/", "https://nobody-local.github.io/Blog/")}</div>`;
                 document.querySelector("#docs").innerHTML = $content;
                 document.title = query.title.rendered;
                 this.reimage();
@@ -61,7 +61,7 @@ const BlogBooks = {
         fetch(`https://blogbooks-fetcher-1.haru070.repl.co/user/?id=${id}`)
             .then(response => response.json())
             .then(data => {
-                document.querySelector(".author").innerHTML = data.name;
+                document.querySelector(".info").innerHTML += "Written By " + data.name;
             })
     }
 }
