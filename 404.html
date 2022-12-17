@@ -26,7 +26,7 @@
     try {
         // Start Line
         if (location.pathname.startsWith("/Blog")) {
-            BlogBooks.page(location.href.split("/")[4]);
+            BlogBooks.page(location.pathname.split("/")[3]);
         } else {
             location.href = location.origin;
         }

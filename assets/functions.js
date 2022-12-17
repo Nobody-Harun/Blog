@@ -15,7 +15,7 @@ const BlogBooks = {
                 document.querySelector("#docs").innerHTML = $content;
                 document.querySelectorAll(".que").forEach(data => {
                     data.addEventListener("click", () => {
-                        location.href = location.origin + "/Blog/" + data.getAttribute("data-postid");
+                        location.href = location.origin + "/Blog/" + data.getAttribute("data-postid") + "/";
                     });
                 })
             })
@@ -42,16 +42,6 @@ const BlogBooks = {
         format = new Date(format);
         return `${format.getFullYear()}/${format.getMonth()}/${format.getDate()} ${format.getHours()}:${format.getMinutes()}`;
     }
-}
-
-function getParam(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
 const a = document.createElement("link");
