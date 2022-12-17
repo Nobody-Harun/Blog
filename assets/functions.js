@@ -50,6 +50,9 @@ const BlogBooks = {
                 .then(data => {
                     el.src = data;
                 })
+                .catch(e => {
+                    document.querySelector("#docs").innerHTML = e;
+                });
         })
     }
 }
