@@ -32,6 +32,9 @@ const BlogBooks = {
                 $content = `<h1>${query.title.rendered}</h1><div class="date">Date: ${this.timeAsset(query.date)}</div><div class="content">${String(query.content.rendered).replaceAll("https://blogbooks.net/chromebook/", "https://nobody-local.github.io/Blog/")}</div>`;
                 document.querySelector("#docs").innerHTML = $content;
                 document.title = query.title.rendered;
+                document.querySelector("#docs").querySelector(".content").querySelectorAll("image").forEach(el => {
+                    el.src = this.reimage(el.src);
+                })
             })
             .catch(e => {
                 document.querySelector("#docs").innerHTML = e;
@@ -41,6 +44,10 @@ const BlogBooks = {
     timeAsset(format) {
         format = new Date(format);
         return `${format.getFullYear()}/${format.getMonth()}/${format.getDate()} ${format.getHours()}:${format.getMinutes()}`;
+    },
+    reimage(url) {
+        let response = fetch(`https://blogbooks-fetcher-1.haru070.repl.co/tools/image/?url=${id}`);
+        return response.text();
     }
 }
 
