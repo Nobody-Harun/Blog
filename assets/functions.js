@@ -31,6 +31,7 @@ const BlogBooks = {
             .then(query => {
                 $content = `<h1>${query.title.rendered}</h1><div class="date">Date: ${query.date}</div><div class="content">${String(query.content.rendered).replaceAll("https://blogbooks.net/chromebook/", "https://nobody-local.github.io/Blog/")}</div>`;
                 document.querySelector("#docs").innerHTML = $content;
+                document.title = query.title.rendered;
             })
             .catch(e => {
                 document.querySelector("#docs").innerHTML = e;
