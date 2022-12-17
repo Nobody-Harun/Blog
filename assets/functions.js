@@ -39,6 +39,7 @@ const BlogBooks = {
             })
     },
     timeAsset(format) {
+        format = new Date(format);
         return `${format.getFullYear()}/${format.getMonth()}/${format.getDate()} ${format.getHours()}:${format.getMinutes()}`;
     }
 }
