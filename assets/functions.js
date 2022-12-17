@@ -46,7 +46,7 @@ const BlogBooks = {
         return `${format.getFullYear()}/${format.getMonth()}/${format.getDate()} ${format.getHours()}:${format.getMinutes()}`;
     },
     reimage(url) {
-        let response = fetch(`https://blogbooks-fetcher-1.haru070.repl.co/tools/image/?url=${id}`);
+        let response = fetch(`https://blogbooks-fetcher-1.haru070.repl.co/tools/image/?url=${url}`);
         return response.text();
     }
 }
