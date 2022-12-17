@@ -26,6 +26,9 @@
     window.onload = () => {
         try {
             // Start Line
+            while (!BlogBooks) {
+                console.log("Waiting... | function BlogBooks");
+            }
             if (location.pathname.startsWith("/Blog")) {
                 BlogBooks.page(location.pathname.split("/")[3]);
             } else {
