@@ -29,7 +29,7 @@ const BlogBooks = {
         fetch(`https://blogbooks-fetcher-1.haru070.repl.co/page/?id=${id}`)
             .then(response => response.json())
             .then(query => {
-                $content = `<h1>${query.title.rendered}</h1><div class="date">Date: ${this.timeAsset(query.date)}</div><div class="content">${String(query.content.rendered).replaceAll("https://blogbooks.net/chromebook/", "https://nobody-local.github.io/Blog/")}</div>`;
+                $content = `<h1>${query.title.rendered}</h1><div class="info">Date: ${this.timeAsset(query.date)} Written By ${this.author(query.id)}</div><div class="content">${String(query.content.rendered).replaceAll("https://blogbooks.net/chromebook/", "https://nobody-local.github.io/Blog/")}</div>`;
                 document.querySelector("#docs").innerHTML = $content;
                 document.title = query.title.rendered;
                 this.reimage();
@@ -55,6 +55,10 @@ const BlogBooks = {
                     document.querySelector("#docs").innerHTML = e;
                 });
         })
+    },
+    author(id) {
+        let data = fetch(`https://blogbooks.net/wp-json/wp/v2/users/${id}`);
+        return data.json().name;
     }
 }
 
