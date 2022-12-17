@@ -13,10 +13,13 @@
     </style>
 </head>
 <body>
-    <a href="/Blog"><= Homeに戻る</a>
+    <a id="backTo"><= Homeに戻る</a>
     <div id="docs">Fetching...</div>
     <script src="assets/functions.js"></script>
     <script>
+    document.querySelector("#backTo").addEventListener("click", () => {
+        location.href = VanityURL;
+    })
     try {
         // Start Line
         if (location.pathname.startsWith("/Blog")) {
