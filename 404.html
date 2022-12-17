@@ -25,10 +25,12 @@
     })
     try {
         // Start Line
-        if (location.pathname.startsWith("/Blog")) {
-            BlogBooks.page(location.pathname.split("/")[3]);
-        } else {
-            location.href = location.origin;
+        window.onload = () => {
+            if (location.pathname.startsWith("/Blog")) {
+                BlogBooks.page(location.pathname.split("/")[3]);
+            } else {
+                location.href = location.origin;
+            }
         }
     } catch(e) {
         document.querySelector("#docs").innerHTML = e;
