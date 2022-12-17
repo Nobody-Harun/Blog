@@ -7,7 +7,7 @@ const BlogBooks = {
                 var $content = "";
                 query.forEach(data => {
                     if (data.excerpt.protected == true) {
-                        $content += `<div class="post"><div class="title"><i class='bx bx-lock-alt'></i> ${data.title.rendered}</div><div class="description">ロックされている記事</div></div>`;
+                        $content += `<div class="post"><div class="title"><i class='bx bx-lock-alt'></i > ${data.title.rendered}</div><div class="description">この投稿はパスワードで保護されているため抜粋文はありません。</div></div>`;
                     } else {
                         $content += `<div class="post que" data-postid="${data.id}"><div class="title">${data.title.rendered}</div><div class="description">${data.excerpt.rendered}</div></div>`;
                     }
