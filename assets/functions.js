@@ -9,11 +9,11 @@ const BlogBooks = {
                     if (data.excerpt.protected == true) {
                         $content += `<div class="post"><div class="title"><i class='bx bx-lock-alt'></i> ${data.title.rendered}</div><div class="description">ロックされている記事</div></div>`;
                     } else {
-                        $content += `<div class="post" data-postid="${data.id}"><div class="title">${data.title.rendered}</div><div class="description">${data.excerpt.rendered}</div></div>`;
+                        $content += `<div class="post que" data-postid="${data.id}"><div class="title">${data.title.rendered}</div><div class="description">${data.excerpt.rendered}</div></div>`;
                     }
                 });
                 document.querySelector("#docs").innerHTML = $content;
-                document.querySelectorAll(".post").forEach(data => {
+                document.querySelectorAll(".que").forEach(data => {
                     data.addEventListener("click", () => {
                         location.href = location.origin + "/Blog/" + data.getAttribute("data-postid");
                     });
