@@ -45,11 +45,11 @@ const BlogBooks = {
     },
     reimage() {
         document.querySelectorAll("img").forEach(el => {
-            el.srcset = null;
-            fetch(`https://blogbooks-fetcher-1.haru070.repl.co/tools/image/?url=${el.src}`)
+            el.removeAttribute("srcset");
+            fetch(`https://blogbooks-fetcher-1.haru070.repl.co/tools/image/?url=${el.getAttribute("src")}`)
                 .then(response => response.text())
                 .then(data => {
-                    el.src = data;
+                    el.setAttribute("src", data)
                 })
                 .catch(e => {
                     document.querySelector("#docs").innerHTML = e;
