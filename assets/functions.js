@@ -17,12 +17,6 @@ const BlogBooks = {
                     data.addEventListener("click", () => {
                         location.href = location.origin + "/Blog/" + data.getAttribute("data-postid");
                     });
-                    data.addEventListener("mouseover", () => {
-                        data.before = "<i class='bx bx-right-arrow-alt' ></i>";
-                    })
-                    data.addEventListener("mouseleave", () => {
-                        data.before = "";
-                    })
                 })
             })
             .catch(e => {
