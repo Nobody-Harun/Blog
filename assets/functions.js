@@ -4,13 +4,18 @@ const BlogBooks = {
         fetch("https://blogbooks-fetcher-1.haru070.repl.co/posts")
             .then(response => response.json())
             .then(query => {
-                var $content;
+                var $content = "";
                 query.forEach(data => {
                     if (data.excerpt.protected == "true") {} else {
-                        $content += `<div class="post" data-postID="${data.id}"><div class="title">${data.title.rendered}</div><div class="description">${data.excerpt.rendered}</div></div>`;
+                        $content += `<div class="post" data-postid="${data.id}"><div class="title">${data.title.rendered}</div><div class="description">${data.excerpt.rendered}</div></div>`;
                     }
                 });
                 document.querySelector("#docs").innerHTML = $content;
+                document.querySelectorAll(".post").forEach(data => {
+                    data.addEventListener("click", () => {
+                        location.href = location.origin + "/Blog/" + data.getAttribute("data-postid");
+                    });
+                })
             })
             .catch(e => {
                 document.querySelector("#docs").innerHTML = e;
