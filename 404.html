@@ -23,17 +23,17 @@
     document.querySelector("#backTo").addEventListener("click", () => {
         location.href = VanityURL;
     })
-    try {
-        // Start Line
-        window.onload = () => {
+    window.onload = () => {
+        try {
+            // Start Line
             if (location.pathname.startsWith("/Blog")) {
                 BlogBooks.page(location.pathname.split("/")[3]);
             } else {
                 location.href = location.origin;
             }
+        } catch(e) {
+            document.querySelector("#docs").innerHTML = e;
         }
-    } catch(e) {
-        document.querySelector("#docs").innerHTML = e;
     }
     </script>
 </body>
