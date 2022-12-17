@@ -57,9 +57,11 @@ const BlogBooks = {
         })
     },
     author(id) {
-        let data = fetch(`https://blogbooks.net/wp-json/wp/v2/users/${id}`)
-            .then(response => response.json());
-        return data.name;
+        fetch(`https://blogbooks.net/wp-json/wp/v2/users/${id}`)
+            .then(response => response.json())
+            .then(data => {
+                return data.name;
+            })
     }
 }
 
