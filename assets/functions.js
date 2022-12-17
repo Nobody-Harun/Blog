@@ -43,17 +43,14 @@ const BlogBooks = {
         format = new Date(format);
         return `${format.getFullYear()}/${format.getMonth()}/${format.getDate()} ${format.getHours()}:${format.getMinutes()}`;
     },
-    reimage(url) {
+    reimage() {
         document.querySelectorAll("img").forEach(el => {
-            fetch(`https://blogbooks-fetcher-1.haru070.repl.co/tools/image/?url=${url}`)
+            fetch(`https://blogbooks-fetcher-1.haru070.repl.co/tools/image/?url=${el.src}`)
                 .then(response => response.text())
                 .then(data => {
                     el.src = data;
                 })
-            el.src = this.reimage(el.src);
         })
-        let response = fetch(`https://blogbooks-fetcher-1.haru070.repl.co/tools/image/?url=${url}`);
-        return response.text();
     }
 }
 
