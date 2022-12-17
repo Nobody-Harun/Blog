@@ -17,19 +17,19 @@ const BlogBooks = {
                     data.addEventListener("click", () => {
                         location.href = location.origin + "/Blog/" + data.getAttribute("data-postid") + "/";
                     });
-                })
+                });
             })
             .catch(e => {
                 document.querySelector("#docs").innerHTML = e;
                 console.error(e);
-            })
+            });
     },
     page(id = "") {
         if (id === (null || "" || undefined)) return;
         fetch(`https://blogbooks-fetcher-1.haru070.repl.co/page/?id=${id}`)
             .then(response => response.json())
             .then(query => {
-                $content = `<h1>${query.title.rendered}</h1><div class="info">Date: ${this.timeAsset(query.date)} </div><div class="content">${String(query.content.rendered).replaceAll("https://blogbooks.net/chromebook/", "https://nobody-local.github.io/Blog/")}</div>`;
+                let $content = `<h1>${query.title.rendered}</h1><div class="info">Date: ${this.timeAsset(query.date)} </div><div class="content">${String(query.content.rendered).replaceAll("https://blogbooks.net/chromebook/", "https://nobody-local.github.io/Blog/")}</div>`;
                 document.querySelector("#docs").innerHTML = $content;
                 document.title = query.title.rendered;
                 this.reimage();
@@ -38,7 +38,7 @@ const BlogBooks = {
             .catch(e => {
                 document.querySelector("#docs").innerHTML = e;
                 console.error(e);
-            })
+            });
     },
     timeAsset(format) {
         format = new Date(format);
@@ -55,16 +55,16 @@ const BlogBooks = {
                 .catch(e => {
                     document.querySelector("#docs").innerHTML = e;
                 });
-        })
+        });
     },
     author(id) {
         fetch(`https://blogbooks-fetcher-1.haru070.repl.co/user/?id=${id}`)
             .then(response => response.json())
             .then(data => {
                 document.querySelector(".info").innerHTML += "Written By " + data.name;
-            })
+            });
     }
-}
+};
 
 const a = document.createElement("link");
 a.rel = "shortcut icon";
